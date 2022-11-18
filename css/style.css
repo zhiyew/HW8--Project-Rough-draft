@@ -1,0 +1,961 @@
+/*Mobile first*/
+/* import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Yeseva+One&display=swap");
+
+:root {
+  /* Set up the basic color and font styles */
+  /* Colors: */
+  --accent-green: #259088;
+  --accent-blue: #4976ba;
+  --bg: white;
+  --body-text-color: #3d3d3d;
+  --heading-text-color: #333333;
+  --heading2-text-color: #837d7d;
+  --link-hover: #077bff;
+
+  /* Font/text values */
+
+  /*    font-family, find the values from google fonts website*/
+  --headings-font-family: "Yeseva One", cursive;
+  --body-font-family: "Open Sans", sans-serif;
+}
+
+html {
+  font-size: 20px;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: var(--body-font-family);
+  font-weight: 300;
+  /*  Convert px to rem:  1rem = 16px*/
+  font-size: 18px;
+  /*    line-height is 150% of the font size*/
+  line-height: 1.6;
+  color: var(--body-text-color);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 1.3rem;
+}
+
+.skip a{
+  background: white;
+  left: 0;
+  padding: 6px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+  position:absolute;
+  top:-40px;
+}
+
+.skip a:focus {
+  top:20px;
+}
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: transparent; /* Black fallback color */
+  background-color: transparent; /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  background-image: url(../img/mobilemenu.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.menu1 {
+  position: relative;
+  margin-top: 200px;
+  top: 80px;
+  left: 5px;
+  height: 150px;
+  width: 300px;
+}
+
+.menu2 {
+  position: relative;
+  top: 60px;
+  left: 30px;
+  height: 200px;
+  width: 350px;
+}
+
+.menu3 {
+  position: relative;
+  margin-left: 60px;
+  height: 150px;
+  width: 300px;
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+ .nav-link, .navbar-brand {
+  font-size: 18px;
+  display: inline;
+/*use important to override the system value*/
+  color:black !important;
+}
+
+.nav-link:hover, .navbar-brand:hover{
+color:black !important;
+}
+
+/* active link */
+.nav-link.active{
+ text-decoration: underline;
+ text-underline-position: under;
+}
+
+.menuicon {
+  height: 60px;
+  width: 60px;
+  right: 0px;
+}
+
+/*this is a group selection, selecting all the headlines h1-h4 and set a standard style*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #333333;
+  /*    font-family*/
+  font-family: var(--headings-font-family);
+  /*    font-weight*/
+  font-weight: 450;
+  line-height: 1.2;
+}
+
+/*Set a unique style to a specific tag element*/
+h1 {
+  /* margin-top: 0; */
+  font-size: 40px;
+  margin-top: 200px;
+  color: #837d7d;
+  text-align: center;
+}
+
+#firstname {
+  /* margin-top: 0; */
+  margin-top: 40px;
+  font-size: 52px;
+  margin-right: 30px;
+}
+
+#lastname {
+  /* margin-top: 0; */
+  font-size: 52px;
+  margin-left: 75px;
+}
+
+#abouth3 {
+  margin-top: 110px;
+  margin-bottom: 15px;
+  font-size: 44px;
+  text-align: center;
+}
+
+h4 {
+  margin-top: 38px;
+  font-weight: 400;
+  font-size: 26px;
+  text-align: center;
+}
+
+h5 {
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+}
+
+h6 {
+  font-size: 28px;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+#introduction {
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/*Interactive elements*/
+
+/* link*/
+
+a {
+  color: var(--accent-light-green);
+}
+
+a:hover {
+  color: var(--link-hover);
+  /*    text-decoration: none;*/
+}
+
+/*button style*/
+/*solid button style*/
+.btn-primary {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Yeseva One", cursive;
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  line-height: 1.5;
+  /*    border-radius*/
+  border-radius: 20px;
+  border-color: var(--bg);
+  /*    top:1 right:3 bottom:1 left:3*/
+  /*    the size of button*/
+  padding: 10px 5px;
+  background-color: var(--bg);
+  color: var(--accent-blue);
+  margin-top: 100px;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+}
+
+.btn-primary:hover {
+  color: var(--accent-green);
+  background-color: var(--bg);
+  border-color: var(--bg);
+  border-width: 4px;
+  opacity: 1;
+}
+
+.btn-primary:focus {
+  color: var(--accent-blue);
+  background-color: var(--bg);
+  opacity: 1;
+}
+
+/*outline button style*/
+/*.btn-outline-primary {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    line-height: 1.375rem;
+    margin-top: 180px;
+    text-align: center;
+    border-radius: 200px;
+    padding: 10px 10px 20px 20px;
+    color:var(--accent-greenn);
+    background-color: var(--bg);
+    border: 1px var(--accent-green) solid;
+    transition: all 0.5s;
+}
+/*
+.btn btn-outline-primary:hover {
+    color: var(--accent-green);
+    background-color: var(--bg);
+    border-color: var(--bg);
+}
+*/
+footer {
+  margin-top: 50px;
+}
+
+/* custom class */
+/*home page*/
+#home {
+  background-image: url(../img/mobilehomepage.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+#about {
+  background-image: url(../img/smalltopleftline.svg);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: fix;
+}
+
+img {
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#modal {
+  background-image: url(../img/smalltopleftline.svg);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: fix;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  justify-self: center;
+  align-items: stretch;
+  row-gap: 15px;
+  column-gap: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.grid-container > img {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  display: inline-block;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/*about page*/
+
+/*screen that is larger than the mobile view, Large Screen*/
+@media only screen and (min-width: 425px) {
+  h1 {
+    /* margin-top: 0; */
+    font-size: 40px;
+    margin-top: 160px;
+    color: #837d7d;
+    text-align: center;
+  }
+
+  #firstname {
+    /* margin-top: 0; */
+    margin-top: 40px;
+    font-size: 55px;
+    margin-right: 40px;
+  }
+
+  #lastname {
+    /* margin-top: 0; */
+    font-size: 55px;
+    margin-left: 78px;
+  }
+
+  .btn-primary {
+    display: flex;
+    justify-content: space-around;
+    font-family: "Yeseva One", cursive;
+    font-size: 24px;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    /*    border-radius*/
+    border-radius: 20px;
+    border-color: var(--bg);
+    /*    top:1 right:3 bottom:1 left:3*/
+    /*    the size of button*/
+    padding: 10px 0px;
+    background-color: var(--bg);
+    color: var(--accent-blue);
+    margin-top: 100px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+  }
+
+  #home {
+    background-image: url(../img/425backgroundimage.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  #home {
+    background-image: url(../img/homeimage.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  h1 {
+    /* margin-top: 0; */
+    font-size: 50px;
+    padding-top: 80px;
+    color: #837d7d;
+    text-align: center;
+  }
+
+  h2 {
+    /* margin-top: 0; */
+    font-size: 80px;
+    margin-left: 30px;
+  }
+
+  #abouth3 {
+    margin-top: 120px;
+    margin-bottom: 15px;
+    font-size: 44px;
+    text-align: center;
+  }
+
+  h4 {
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: left;
+  }
+
+  h5 {
+    margin-top: 80px;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: left;
+  }
+
+  .space {
+    margin-top: 60px;
+  }
+
+  .btn-primary {
+    display: flex;
+    justify-content: space-around;
+    font-family: "Yeseva One", cursive;
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    /*    border-radius*/
+    border-radius: 20px;
+    /*    top:1 right:3 bottom:1 left:3*/
+    /*    the size of button*/
+    padding: 10px 5px;
+    background-color: var(--bg);
+    color: var(--accent-blue);
+    border: solid;
+    border-color: var(--bg);
+    margin-top: 140px;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .bg-light {
+    background-color: transparent !important;
+}
+
+  h1 {
+    /* margin-top: 0; */
+    font-size: 45px;
+    margin-top: 30px;
+    color: #837d7d;
+    text-align: center;
+  }
+
+  h2 {
+    /* margin-top: 0; */
+    font-size: 65px;
+    margin-left: 35px;
+  }
+
+  h5 {
+    margin-top: 45px;
+    font-weight: 400;
+    font-size: 26px;
+    text-align: left;
+  }
+
+  h4 {
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: left;
+  }
+
+  h6 {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
+  #introduction1 , #introduction2 {
+    font-size: 18px;
+    padding-bottom: 15px;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  #about {
+    background-image: url(../img/smalltopleftline.svg),
+      url(../img/largerightbottomline.svg);
+    background-position: left top, right bottom;
+    background-repeat: no-repeat;
+    background-size: fix;
+  }
+
+  #modal {
+    background-image: url(../img/smalltopleftline.svg),
+      url(../img/largerightbottomline.svg);
+    background-position: left top, right bottom;
+    background-repeat: no-repeat;
+    background-size: fix;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  h1 {
+    /* margin-top: 0; */
+    font-size: 60px;
+    margin-top: 35px;
+    color: #837d7d;
+    text-align: center;
+  }
+
+  h2 {
+    /* margin-top: 0; */
+    font-size: 80px;
+    margin-left: 40px;
+  }
+
+  #abouth3 {
+    margin-top: 110px;
+    margin-bottom: 15px;
+    font-size: 62px;
+    text-align: center;
+  }
+
+  h4 {
+    margin-top: 50px;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: left;
+  }
+
+  h6 {
+    font-size: 58px;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
+  #introduction {
+    font-size: 22px;
+    padding-bottom: 15px;
+  }
+
+  p {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  .btn-primary {
+    display: flex;
+    justify-content: space-around;
+    font-family: "Yeseva One", cursive;
+    font-size: 30px;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    /*    border-radius*/
+    border-radius: 25px;
+    /*    top:1 right:3 bottom:1 left:3*/
+    /*    the size of button*/
+    padding: 10px 0px;
+    background-color: var(--bg);
+    color: var(--accent-blue);
+    border: solid;
+    border-color: var(--bg);
+    margin-top: 160px;
+    transition: all 0.5s;
+  }
+
+  #home {
+    background-image: url(../img/1024homebackgroundimage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+  }
+
+  #about {
+    background-image: url(../img/smalltopleftline.svg),
+      url(../img/largerightbottomline.svg);
+    background-position: left top, right bottom;
+    background-repeat: no-repeat;
+    background-size: fix;
+  }
+
+  #modal {
+    background-image: url(../img/largelefttopcornerline.svg),
+      url(../img/largerightbottomline.svg);
+    background-position: left top, right bottom;
+    background-repeat: no-repeat;
+    background-size: fix;
+  }
+
+  .portfolio img:hover {
+    filter: opacity(30%);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.21);
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    justify-content: center;
+    justify-self: center;
+    align-items: stretch;
+    row-gap: 15px;
+    column-gap: 15px;
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+
+  .grid-container > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+
+  #image1 {
+    grid-column-start: 1;
+  }
+
+  #image2 {
+    grid-column-start: 2;
+  }
+
+  #image3 {
+    grid-column-start: 3;
+    grid-row: span 2;
+  }
+
+  #image4 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  #image5 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  #image6 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  #image7 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+
+  #image8 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  #image9 {
+    grid-column: span 2;
+    grid-row: 4 / 5;
+  }
+
+  #image10 {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+  }
+
+  #image1 img {
+    width: 298px;
+    height: 255px;
+    object-fit: fill;
+  }
+
+  #image2 img {
+    width: 298px;
+    height: 255px;
+    object-fit: fill;
+  }
+
+  #image3 img {
+    width: 298px;
+    height: 570px;
+    object-fit: fill;
+  }
+
+  #image4 img {
+    width: 298px;
+    height: 300px;
+    object-fit: fill;
+  }
+
+  #image5 img {
+    width: 298px;
+    height: 300px;
+    object-fit: fill;
+  }
+
+  #image6 img {
+    width: 298px;
+    height: 330px;
+    object-fit: fill;
+  }
+
+  #image7 img {
+    width: 298px;
+    height: 330px;
+    object-fit: fill;
+  }
+
+  #image8 img {
+    width: 298px;
+    height: 330px;
+    object-fit: fill;
+  }
+
+  #image9 img {
+    width: 611px;
+    height: 320px;
+    object-fit: fill;
+  }
+
+  #image10 img {
+    width: 298px;
+    height: 320px;
+    object-fit: fill;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  h1 {
+    /* margin-top: 0; */
+    font-size: 75px;
+    margin-top: 70px;
+    color: #837d7d;
+    text-align: center;
+  }
+
+  h2 {
+    /* margin-top: 0; */
+    font-size: 100px;
+    margin-left: 40px;
+  }
+
+  #abouth3 {
+    /* margin-top: 0; */
+    font-size: 120px;
+    padding-top: 100px;
+    margin-bottom: 25px;
+  }
+
+  #home {
+    background-image: url(../img/1440backgroundimage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+  }
+
+  .btn-primary {
+    display: flex;
+    justify-content: space-around;
+    font-family: "Yeseva One", cursive;
+    font-size: 35px;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    /*    border-radius*/
+    border-radius: 25px;
+    /*    top:1 right:3 bottom:1 left:3*/
+    /*    the size of button*/
+    padding: 10px 0px;
+    background-color: var(--bg);
+    color: var(--accent-blue);
+    border: solid;
+    border-color: var(--bg);
+    margin-top: 160px;
+    transition: all 0.5s;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    justify-content: center;
+    justify-self: center;
+    align-items: stretch;
+    row-gap: 25px;
+    column-gap: 25px;
+    margin-left: 55px;
+    margin-right: 55px;
+  }
+
+  .grid-container > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  img {
+    display: inline-block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+
+  #image1 {
+    grid-column-start: 1;
+  }
+
+  #image2 {
+    grid-column-start: 2;
+  }
+
+  #image3 {
+    grid-column-start: 3;
+    grid-row: span 2;
+  }
+
+  #image4 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  #image5 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  #image6 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  #image7 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+
+  #image8 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+  }
+
+  #image9 {
+    grid-column: span 2;
+    grid-row: 4 / 5;
+  }
+
+  #image10 {
+    grid-column: 3 / 4;
+    grid-row: 4 / 5;
+  }
+  #image1 img {
+    width: 433px;
+    height: 372px;
+    object-fit: fill;
+  }
+
+  #image2 img {
+    width: 433px;
+    height: 372px;
+    object-fit: fill;
+  }
+
+  #image3 img {
+    width: 433px;
+    height: 833px;
+    object-fit: fill;
+  }
+
+  #image4 img {
+    width: 433px;
+    height: 436px;
+    object-fit: fill;
+  }
+
+  #image5 img {
+    width: 433px;
+    height: 436px;
+    object-fit: fill;
+  }
+
+  #image6 img {
+    width: 433px;
+    height: 480px;
+    object-fit: fill;
+  }
+
+  #image7 img {
+    width: 433px;
+    height: 480px;
+    object-fit: fill;
+  }
+
+  #image8 img {
+    width: 433px;
+    height: 480px;
+    object-fit: fill;
+  }
+
+  #image9 img {
+    width: 891px;
+    height: 465px;
+    object-fit: fill;
+  }
+
+  #image10 img {
+    width: 433px;
+    height: 465px;
+    object-fit: fill;
+  }
+}
